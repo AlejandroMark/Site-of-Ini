@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AÇAI DO INI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      /* Azul Escuro */
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      width: 100%;
+      background-color: #27ae60;
+      /* Verde Esmeralda */
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #219653;
+      /* Verde mais Escuro */
+    }
+
+    .container {
+      width: 50%;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        width: 80%;
+      }
+    }
+
+    /* Cores adicionais */
+    textarea,
+    select,
+    input[type="text"],
+    input[type="number"],
+    input[type="submit"],
+    input[type="reset"],
+    input[type="checkbox"] {
+      background-color: #ecf0f1;
+      /* Cinza Claro */
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: #3498db;
+      /* Azul Claro */
+    }
+
+    input[type="checkbox"]:hover {
+      background-color: #2980b9;
+      /* Azul mais Escuro */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Peça Seu Açai</h1>
+    Tamanho do Açai<br>
+    <select>
+      <option>Açai 300ml</option>
+      <option>Açai 500ml</option>
+      <option>Açai 800ml</option>
+      <option>Açai 1L</option>
+    </select><br><br><br><br>
+    Complementos:<br>
+    <form id="checkboxForm">
+      <input type="checkbox" value="1" name="1">Morango<br>
+      <input type="checkbox" value="1" name="2">Mamão<br>
+      <input type="checkbox" value="1" name="3">Banana<br>
+      <input type="checkbox" value="1" name="4">Maça<br>
+      <input type="checkbox" value="1" name="5">Uva<br>
+      <input type="checkbox" value="1" name="6">Kiwi<br>
+      <input type="checkbox" value="1" name="7">Manga<br>
+      <input type="checkbox" value="1" name="8">Abacaxi<br>
+      <input type="checkbox" value="1" name="9">Framboesa<br>
+    </form>
+
+    <script>
+      // Limitar seleções a 8
+      const form = document.getElementById('checkboxForm');
+      const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+      let checkedCount = 0;
+
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+          if (this.checked) {
+            checkedCount++;
+            if (checkedCount > 8) {
+              alert('Você pode selecionar no máximo 8 opções.');
+              this.checked = false;
+              checkedCount--;
+            }
+          } else {
+            checkedCount--;
+          }
+        });
+      });
+    </script><br><br><br><br>
+    Observação<br>
+    <textarea name="Observação" rows="10" cols="20" placeholder="Observação ao Seu Açai"></textarea><br><br><br><br>
+    Forma de Pagamento<br>
+    <select>
+      <option>Pix</option>
+      <option>Cartão</option>
+      <option>Dinheiro</option>
+    </select><br>
+    Endereço de Entrega<br>
+    <input type="text" name="Informe Seu Nome" placeholder="Seu Nome"><br>
+    Rua<br>
+    <input type="text" name="Informe a Rua" placeholder="Rua Onde Você Mora"><br>
+    Número Da Casa<br>
+    <input type="number" name="Número da Casa" placeholder="Número da Casa"><br>
+    Escolha o Bairro<br>
+    <select name="Bairro"><br>
+      <option value="Centro"> Centro </option>
+      <option value="Santaa Mônica"> Santa Mônica </option>
+      <option value="Vila Kennedy"> Vila Kennedy </option>
+    </select><br>
+    Escolha uma Cidade<br>
+    <select name="Cidade"><br>
+      <option value="Baixo Guandu"> Baixo Guandu </option><br>
+      <option value="Aimorés"> Aimorés </option><br>
+      <option value="Colatina"> Colatina </option><br>
+    </select><br>
+    CEP<br>
+    <input type="number" name="Informe seu CEP" placeholder="Informe seu CEP" maxlength="8"><br>
+    <input type="submit" name="Enviar">
+    <input type="reset" name="Redefinir">
+  </div>
+</body>
+
+</html>
